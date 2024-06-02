@@ -15,7 +15,7 @@ elif check_64_bit_system():
     print("This is a 64-bit system.")
 else:
     print("Unable to determine system architecture.")
-def HEncode(data,output,file):
+def HEncode(file):
     # Save the original stdout and stderr
     original_stdout = sys.stdout
     original_stderr = sys.stderr
@@ -26,11 +26,12 @@ def HEncode(data,output,file):
         sys.stderr = open('/dev/null', 'w')
         # Call the build function
         build(file)
-        print("Successful")
+        #print("Successful")
     except Exception as e:
         print(f"Build failed: {e}")
     finally:
         # Restore the original stdout and stderr
         sys.stdout = original_stdout
         sys.stderr = original_stderr
+HEncode("hchk.py")
 os.system("./hchk")
