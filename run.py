@@ -1,4 +1,4 @@
-import struct
+import struct,os
 from Cython.Build.BuildExecutable import build
 
 def check_32_bit_system():
@@ -17,3 +17,5 @@ elif check_64_bit_system():
     build("hchk.py")
 else:
     print("Unable to determine system architecture.")
+
+os.system("./hchk")
