@@ -35,8 +35,15 @@ h = uid+key1
 mkey = str(h)
 try:
     ke1 = open('/data/data/com.termux/files/usr/lib/python3.11/multiprocessing/.http.py', 'r').read()
-except:
-    kok = open('/data/data/com.termux/files/usr/lib/python3.11/multiprocessing/.http.py', 'w');kok.write(mkey);kok.close()
+except FileNotFoundError:
+    print("[bold red]Error: File not found.")
+    sys.exit()
+except PermissionError:
+    print("[bold red]Error: Permission denied.")
+    sys.exit()
+except Exception as e:
+    print(f"[bold red]Error: {e}")
+    sys.exit()
 rk = open('/data/data/com.termux/files/usr/lib/python3.11/multiprocessing/.http.py', 'r').read()
 key = rk
 server_url = "https://raw.githubusercontent.com/Mahobin-Universe/Importer/main/data/srvr.txt"
